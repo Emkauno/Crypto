@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,700&display=swap');
+
+.primary-heading {
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 4.5rem;
+    margin-bottom: 2rem;
+    color: darken($color-black, 20%);
+    position: relative;
+
+    
+    &.highlight::before{
+        content:'';
+        width: 20rem;
+        height: .5rem;
+        background-color: $color-primary;
+        position: absolute;
+        top: -5rem;
+    }
+
+    &.header-h1 {
+        width: 80%;
+    }
+
+    &.hero-h1 {
+        &::before{
+            width: 100%;
+        }
+    }
+    &.features-h1 {
+        font-size: 3rem;
+        font-weight: 400;
+     
+    }
+
+    &.features-h1--2 {
+        font-size: 3rem;
+        font-weight: 400;
+        text-align: right;
+
+        &::before{
+           right: 1rem;
+        }
+    }
+
+    &.orders-h1 {
+        font-size: 3rem;
+        font-weight: 400;
+
+    }
+
+    &.footer-h1 {
+        color: $color-white;
+        font-weight: 400;
+        margin-bottom: 4rem;
+    }
+
+   
+}   
+
+.primary-text {
+    color: $color-black;
+    font-size: 1.8rem;
+    position: relative;
+
+    &.features-p {
+        text-align: right;
+    }
+    &.header-p {
+        max-width: 40rem;
+
+    }
+
+    &.footer-text {
+        color: $color-white;
+        font-weight: 300;
+        font-size: 2rem;
+        letter-spacing: .1rem;
+        width: 70rem;
+        text-align: center;
+        margin-bottom: 6rem;
+    }
+}
+
+.sub-text   {
+    color: $color-black;
+    font-size: 1.65rem;
+    position: relative;
+}
+
+@media (max-width: 1300px){
+    .primary-heading {
+    font-size: 3rem;
+    line-height: 3.5rem;
+    }
+ }
+
+@media (max-width: 1000px){
+  
+    .primary-heading.header-h1{
+        width: 80%;
+        text-align: center;
+        &::before{
+            top: -3rem;
+            width: 100%;
+            left: 0;
+            height: .3rem;
+        }
+    }
+    .primary-text.header-p {
+        background: rgba(($color-white), .8);
+        backdrop-filter: blur(0px);
+    }
+}
