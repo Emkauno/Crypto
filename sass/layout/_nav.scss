@@ -31,12 +31,16 @@ nav {
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
-        width: 30rem;
+        width: 40rem;
         list-style-type: none;
         
         &--item {
             font-size: 2rem;
-            font-weight: 700;
+            font-weight: 400;
+            
+            &:not(:last-child){
+                margin-right: 2rem;
+            }
 
             & a {
                 color: $color-black;

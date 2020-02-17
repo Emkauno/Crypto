@@ -1,12 +1,17 @@
 .footer {
   width: 100%;
-  height: 100vh;
-  background-color: $color-black;
+  height: 70vh;
+  background: linear-gradient(to bottom, lighten($color-primary, 10%),rgb(229, 247, 211));
   display: flex;
-  flex-direction: column;
+  flex-direction: column; 
   justify-content: center;
   align-content: center;
   position: relative;
+  padding-top: -20rem;
+  
+  &-btn {
+    margin-top: 0;
+  }
 
   &__content-top {
     height: 60%;
@@ -15,11 +20,6 @@
     justify-content: center;
     align-items: center;
 
-    & .form {
-      width: 30%;
-      height: 5rem;
-      background: red;
-    }
   }
   &__content-bot {
     height: 40%;
@@ -35,6 +35,12 @@
       justify-content: space-evenly;
       width: 100%;
       height: 100%;
+
+      &--item {
+        & img {
+          height: 4.5rem
+        }
+      }
     }
   }
 }

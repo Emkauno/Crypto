@@ -9,7 +9,7 @@
     background-color: $color-white;
 
     &--1 {
-        padding-top: 30rem;
+        padding-top: 15rem;
     }
 
     &__left {
@@ -25,7 +25,7 @@
         }
 
         & img {
-            width: 50%;
+            width: 40%;
         }
     }
     &__right {
@@ -44,4 +44,32 @@
             width: 65%;
         }
     }
+}
+
+@media (max-width: 1000px){
+    .features {
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: center;
+
+        &__left {
+             width: 100%;
+            
+            & img {
+                width: 25%;
+            }
+            
+        }
+        &__right {
+            width: 50%;
+
+            &.mob-right {
+                order: 2;
+            }
+            & img {
+                width: 65%;
+            }
+        }
+    }
+
 }
