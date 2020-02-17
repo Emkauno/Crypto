@@ -44,3 +44,14 @@
     }
   }
 }
+
+@media (max-width: 500px){
+  .footer__content-bot .footer-icons--item img {
+    height: 3rem;
+  }
+
+  .primary-text.footer-text {
+    font-size: 1.4rem;
+  }
+
+}

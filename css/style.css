@@ -20,7 +20,7 @@ html {
   .primary-heading.highlight::before {
     content: '';
     width: 20rem;
-    height: .5rem;
+    height: .3rem;
     background-color: #37BB8A;
     position: absolute;
     top: -5rem; }
@@ -91,11 +91,13 @@ html {
     font-size: 3rem;
     line-height: 3.5rem; } }
 
-@media (max-width: 1000px) {
+@media (max-width: 1024px) {
   .primary-heading {
     font-size: 3rem;
     line-height: 3.5rem;
     text-align: center; }
+    .primary-heading.highlight::before {
+      width: 100%; }
   .primary-text {
     text-align: center;
     font-size: 1.5rem; }
@@ -114,14 +116,27 @@ html {
     text-align: center; }
     .primary-heading.features-h1.highlight::before {
       width: 100%; }
+  .primary-heading.features-h1--2 {
+    text-align: center; }
+  .primary-heading.orders-h1 {
+    text-align: right; }
+    .primary-heading.orders-h1.highlight::before {
+      right: 0; }
+  .primary-text.orders-p {
+    text-align: right; }
+  .primary-text.features-p {
+    text-align: center; }
   .primary-text.features-p2 {
     text-align: center;
-    margin-bottom: 10rem; }
+    margin-bottom: 0rem; }
   .primary-text.header-p {
     background: rgba(251, 251, 252, 0.8);
     backdrop-filter: blur(0px); }
   .primary-heading .hero-h1 {
-    color: red; } }
+    color: red; }
+  .primary-text.footer-text {
+    font-size: 1.8rem;
+    width: 100%; } }
 
 img {
   transform: translateY(0);
@@ -199,11 +214,17 @@ img {
       .footer__content-bot .footer-icons--item img {
         height: 4.5rem; }
 
+@media (max-width: 500px) {
+  .footer__content-bot .footer-icons--item img {
+    height: 3rem; }
+  .primary-text.footer-text {
+    font-size: 1.4rem; } }
+
 .header {
   background-color: #FBFBFC;
   padding: 0 1rem;
   width: 100%;
-  height: calc(90vh - 8rem);
+  height: calc(80vh - 8rem);
   margin-top: 8rem;
   display: flex;
   flex-direction: row;
@@ -242,7 +263,7 @@ img {
       width: 100%;
       z-index: 100; }
 
-@media (max-width: 1000px) {
+@media (max-width: 1024px) {
   .header {
     flex-direction: column; }
     .header__left {
@@ -255,11 +276,39 @@ img {
         justify-content: center;
         align-items: center; }
     .header__right {
-      height: 100%;
+      height: 10%;
       width: 100%;
       max-width: 30rem; }
       .header__right img {
-        z-index: 0; }
+        z-index: 0;
+        transform: translatey(35%); }
+  .hero {
+    z-index: -2; } }
+
+@media (max-width: 500px) {
+  .primary-heading.header-h1 {
+    font-size: 2.5rem;
+    width: 100%; }
+  .primary-heading.header-h1::before {
+    width: 0; }
+  .header {
+    flex-direction: column; }
+    .header__left {
+      width: 100%; }
+      .header__left--container {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center; }
+    .header__right {
+      height: 20%;
+      width: 100%;
+      max-width: 30rem; }
+      .header__right img {
+        z-index: 0;
+        transform: translatey(40%); }
   .hero {
     z-index: -2; } }
 
@@ -334,11 +383,15 @@ nav {
     .features__right img {
       width: 65%; }
 
-@media (max-width: 1000px) {
+@media (max-width: 1024px) {
   .features {
     flex-direction: column-reverse;
     align-items: center;
-    justify-content: center; }
+    justify-content: center;
+    height: 90vh;
+    padding-bottom: 10rem; }
+    .features--1 {
+      padding-top: 10rem; }
     .features__left {
       width: 100%; }
       .features__left img {
@@ -346,9 +399,25 @@ nav {
     .features__right {
       width: 50%; }
       .features__right.mob-right {
+        width: 100%;
         order: 2; }
       .features__right img {
         width: 65%; } }
+
+@media (max-width: 500px) {
+  .features__left--container {
+    width: 90%; }
+  .features__right {
+    width: 100%; }
+  .features__right img {
+    width: 70%; }
+  .features__right--container {
+    width: 90%; }
+  .primary-text.features-p {
+    font-size: 1.4rem;
+    width: 100%; }
+  .features__left img {
+    width: 50%; } }
 
 .orders {
   width: 100%;
@@ -402,9 +471,43 @@ nav {
       width: 55%;
       z-index: 3; }
 
+@media (max-width: 1024px) {
+  .orders {
+    height: 70vh;
+    padding-bottom: 10rem 0; }
+    .orders img {
+      width: 90%; } }
+
+@media (max-width: 500px) {
+  .orders {
+    flex-direction: column;
+    padding: 15rem 0 10rem 0; }
+    .orders__left {
+      width: 100%; }
+      .orders__left--container {
+        width: 80%;
+        height: 40%; }
+        .orders__left--container .orders-h1 {
+          text-align: center; }
+        .orders__left--container .orders-p {
+          text-align: center;
+          font-size: 1.4rem; }
+    .orders__right {
+      order: 2;
+      width: 80%;
+      justify-content: center;
+      align-items: center;
+      padding-right: 0; }
+      .orders__right img {
+        max-width: 30rem;
+        width: 100%;
+        transform: translateY(7rem); }
+  .orders__bg--bot {
+    transform: translatey(0.15rem); } }
+
 .hero {
   width: 100%;
-  height: 110vh;
+  height: 80vh;
   background: linear-gradient(to bottom right, #EBF3E3, #C0F6F0);
   display: flex;
   flex-direction: column;
@@ -433,7 +536,7 @@ nav {
     position: absolute;
     bottom: 0;
     z-index: 0;
-    transform: scale(-1, -1); }
+    transform: scale(-1, -1) translateY(-0.2rem); }
   .hero img {
     width: 100%;
     max-width: 45rem;
@@ -441,11 +544,24 @@ nav {
     bottom: 0;
     transform: translateY(15%); }
 
-@media (max-width: 1000px) {
+@media (max-width: 1024px) {
   .hero {
     padding-top: 15rem;
-    height: 80vh;
-    overflow: visible; }
+    height: 60vh; }
+    .hero h1, .hero p {
+      transform: translateY(10rem); }
+    .hero img {
+      max-width: 30rem;
+      transform: translateY(0rem);
+      z-index: 1000;
+      margin-bottom: -7rem; } }
+
+@media (max-width: 500px) {
+  .hero {
+    padding-top: 15rem;
+    height: 80vh; }
+    .hero .primary-heading {
+      font-size: 2.5rem; }
     .hero img {
       max-width: 30rem;
       transform: translateY(0rem);

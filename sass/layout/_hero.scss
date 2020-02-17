@@ -1,6 +1,6 @@
 .hero {
     width: 100%;
-    height: 110vh;
+    height: 80vh;
     background: linear-gradient(to bottom right, #EBF3E3, #C0F6F0);
     display: flex;
     flex-direction: column;
@@ -33,7 +33,7 @@
         position: absolute;
         bottom: 0;
         z-index: 0;
-        transform: scale(-1,-1);
+        transform: scale(-1,-1) translateY(-.2rem);
     }
 
     & img {
@@ -45,12 +45,30 @@
     }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1024px) {
+    .hero {
+        padding-top: 15rem;
+        height: 60vh;
+        
+        & h1,p {
+            transform: translateY(10rem);
+        }
+
+        & img {
+            max-width: 30rem;
+            transform: translateY(0rem);
+            z-index: 1000;
+            margin-bottom: -7rem;
+        }
+   }
+}
+@media (max-width: 500px) {
     .hero {
         padding-top: 15rem;
         height: 80vh;
-        overflow: visible;
-
+        & .primary-heading {
+            font-size: 2.5rem;
+        }
         & img {
             max-width: 30rem;
             transform: translateY(0rem);
