@@ -25,6 +25,37 @@ nav {
             opacity: .8;
         }
     }
+    &__button {
+        width: 5rem;
+        height: 5rem;
+        border-radius: 50%;
+        border: 2px solid $color-primary;
+        position: relative;
+    
+        &::before {
+            content:"";
+            position: absolute;
+            width: .3rem;
+            height: 3rem;
+            transform: rotate(90deg);
+            left: 2.1rem;
+            top: -.2rem;
+            background: $color-primary;
+        }
+
+        &::after {
+            content:"";
+            position: absolute;
+            width: .3rem;
+            height: 3rem;
+            transform: rotate(90deg);
+            left: 2.1rem;
+            bottom: -.2rem;
+            background: $color-primary;
+        }
+    
+    }
+
 
     &__links {
         display: flex;
@@ -44,6 +75,7 @@ nav {
 
             & a {
                 color: $color-black;
+                text-transform: uppercase;
                 &:link,:visited,:hover,:active{
                     text-decoration: none;
                 }
@@ -52,3 +84,70 @@ nav {
     }
 }
 
+@media (max-width: 875px){
+
+
+    .nav__links--item {
+        font-size: 1.8rem;
+    }
+
+}
+
+@media (max-width: 720px){
+    .nav__links {
+        display: none;
+    }
+
+    .nav-mobile {
+        width: 100%;
+        height: 15rem;
+        position: fixed;   
+        top: 8rem;
+        left:0;
+        z-index: 4;
+        
+        
+        &__links{
+            width: 100%;
+            height: 18rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba($color-primary,.5);
+            backdrop-filter: blur(5px);
+            transform: translatey(-100%);
+            transition: transform .3s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+        
+            &.is-active {
+                transform: translatey(0);
+            }
+        
+        }
+
+        &--item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 5rem;
+            font-size: 2rem;
+            list-style: none;
+         
+         & a {
+             text-transform: uppercase;
+            color: $color-white;
+            &:link,:visited,:hover,:active {
+                text-decoration: none;
+            }
+        } 
+    }
+}
+}
+
+@media (max-width: 500px){
+    .nav {
+        &__logo-container {
+            width: 10rem;
+        }
+    }
+}
