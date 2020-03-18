@@ -14,9 +14,9 @@
       </div>
       <div class="nav__menu">
         <ul class="nav__links">
-          <li class="nav__links--item"><a href="#">Inicio</a></li>
-          <li class="nav__links--item"><a href="#">Nosotros</a></li>
-          <li class="nav__links--item"><a href="#">DESCARGA</a></li>
+          <li class="nav__links--item"><a class="nav-a" href="#home">HOME</a></li>
+          <li class="nav__links--item"><a class="nav-a" href="#features">ABOUT US</a></li>
+          <li class="nav__links--item"><a class="nav-a" href="#footer">DOWNLOAD</a></li>
         </ul>
         <button class="hamburger hamburger--elastic" type="button">
           <span class="hamburger-box">
@@ -28,13 +28,13 @@
 
 <div class="nav-mobile">
   <ul class="nav-mobile__links">
-      <li class="nav-mobile--item"><a href="#">Inicio</a></li>
-      <li class="nav-mobile--item"><a href="#">Nosotros</a></li>
-      <li class="nav-mobile--item"><a href="#">DESCARGA</a></li>
+      <li class="nav-mobile--item"><a class="nav-a" href="#home">HOME</a></li>
+      <li class="nav-mobile--item"><a class="nav-a" href="#features">ABOUT US</a></li>
+      <li class="nav-mobile--item"><a class="nav-a" href="#footer">DOWNLOAD</a></li>
   </div>
 </div>
 
-    <section class="header">
+    <section class="header" id="home">
       <div class="header__left">
         <div class="header__left--container">
           <h1 class="primary-heading header-h1 highlight">
@@ -51,7 +51,7 @@
         <img src="./assets/img/1.png" alt="" />
       </div>
     </section>
-    <section class="hero">
+    <section class="hero" id="features">
       <div class="hero__bg--top"></div>
       <div class="hero__bg--bot"></div>
       <h1 class="primary-heading hero-h1">A Better Cryptocurrency Experience</h1>
@@ -116,7 +116,7 @@
       <div class="orders__bg--top"></div>
       <div class="orders__bg--bot"></div>
     </section>
-    <footer class="footer">
+    <footer class="footer" id="footer">
       <div class="footer__content-top">
         <h1 class="primary-heading footer-h1">Get on board</h1>
         <p class="primary-text footer-text">
@@ -144,12 +144,13 @@
 <script src="assets/js/lottie.js"></script>
 <script>
 
+ window.onload = ()=> {
   var logoAnimation = bodymovin.loadAnimation({
-  container: logobox, // ID del div
-  path: './assets/img/logo.json', // Ruta fichero .json de la animación
-  renderer: 'svg', // Requerido
-  loop: true, // Opcional
-  autoplay: false, // Opcional
+  container: logobox, 
+  path: './assets/img/logo.json', 
+  renderer: 'svg', 
+  loop: true, 
+  autoplay: false, 
 })
 setTimeout(function(){ logoAnimation.play(); }, 2000);
 //
@@ -160,8 +161,9 @@ const menuToggle = (menu,boton) => {
     menu.classList.contains('is-active') ? (menu.classList.remove('is-active'),boton.classList.remove('is-active')) : (menu.classList.add('is-active'),boton.classList.add('is-active'))
   }
 }
-   
+
 menuToggle(document.querySelector('.nav-mobile'),document.querySelector('.hamburger'));
 
+}
 </script>
 </html>

@@ -8,7 +8,8 @@
 
 html {
   font-size: 10px;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  scroll-behavior: smooth; }
 
 .primary-heading {
   font-size: 4rem;
@@ -182,7 +183,6 @@ img {
       opacity: 1; }
 
 .hamburger {
-  padding: 15px 15px;
   display: none;
   cursor: pointer;
   transition-property: opacity, filter;
@@ -423,14 +423,15 @@ nav {
   max-width: 100%;
   position: fixed;
   z-index: 200;
-  height: 8rem;
+  height: 6rem;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   top: 0;
   padding: 0 3rem;
-  background-color: #FBFBFC; }
+  background-color: rgba(251, 251, 252, 0.5);
+  backdrop-filter: blur(5px); }
   .nav #logobox {
     animation: fadein .5s ease; }
 
@@ -447,30 +448,6 @@ nav {
     transition: opacity .3s ease; }
     .nav__logo-container:hover {
       opacity: .8; }
-  .nav__button {
-    width: 5rem;
-    height: 5rem;
-    border-radius: 50%;
-    border: 2px solid #37BB8A;
-    position: relative; }
-    .nav__button::before {
-      content: "";
-      position: absolute;
-      width: .3rem;
-      height: 3rem;
-      transform: rotate(90deg);
-      left: 2.1rem;
-      top: -.2rem;
-      background: #37BB8A; }
-    .nav__button::after {
-      content: "";
-      position: absolute;
-      width: .3rem;
-      height: 3rem;
-      transform: rotate(90deg);
-      left: 2.1rem;
-      bottom: -.2rem;
-      background: #37BB8A; }
   .nav__links {
     display: flex;
     flex-direction: row;
@@ -484,10 +461,47 @@ nav {
       .nav__links--item:not(:last-child) {
         margin-right: 2rem; }
       .nav__links--item a {
+        position: relative;
         color: #515F64;
         text-transform: uppercase; }
         .nav__links--item a:link, .nav__links--item a :visited, .nav__links--item a :hover, .nav__links--item a :active {
-          text-decoration: none; }
+          text-decoration: none;
+          transition: color .3s ease; }
+        .nav__links--item a.active {
+          color: #909fa5; }
+          .nav__links--item a.active::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -.2rem;
+            width: 100%;
+            opacity: 1;
+            height: .3rem;
+            border-radius: 2px;
+            background-color: #37BB8A; }
+        .nav__links--item a:hover {
+          color: #909fa5; }
+        .nav__links--item a:after {
+          content: "";
+          position: absolute;
+          left: 0;
+          bottom: -1.4rem;
+          width: 100%;
+          height: .3rem;
+          opacity: 0;
+          border-radius: 2px;
+          background-color: #37BB8A;
+          transition: all .3s ease; }
+        .nav__links--item a:hover::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          bottom: -.2rem;
+          width: 100%;
+          opacity: 1;
+          height: .3rem;
+          border-radius: 2px;
+          background-color: #37BB8A; }
 
 @media (max-width: 875px) {
   .nav__links--item {
@@ -500,13 +514,15 @@ nav {
     width: 100%;
     height: 15rem;
     position: fixed;
-    top: 8rem;
+    top: 6rem;
     left: 0;
     z-index: 4;
     transform: translatey(-120%);
-    transition: transform 0.5s cubic-bezier(0.41, 0.01, 0.01, 0.99); }
+    transition: all 0.3s cubic-bezier(0.41, 0.01, 0.01, 0.99);
+    opacity: 0; }
     .nav-mobile.is-active {
-      transform: translatey(0%); }
+      transform: translatey(0%);
+      opacity: 1; }
     .nav-mobile__links {
       width: 100%;
       height: 18rem;
@@ -528,6 +544,11 @@ nav {
         color: #FBFBFC; }
         .nav-mobile--item a:link, .nav-mobile--item a :visited, .nav-mobile--item a :hover, .nav-mobile--item a :active {
           text-decoration: none; } }
+
+@media (max-width: 720px) {
+  .nav {
+    height: 6rem;
+    padding: 0 1.5rem; } }
 
 @media (max-width: 500px) {
   .nav__logo-container {
@@ -576,19 +597,23 @@ nav {
     align-items: center;
     justify-content: center;
     padding-bottom: 10rem; }
-    .features--1 {
-      padding-top: 10rem; }
     .features__left {
       width: 100%; }
       .features__left img {
-        width: 25%; }
+        width: 25%;
+        transform: translatey(10rem); }
+      .features__left--container {
+        width: 75%; }
     .features__right {
       width: 50%; }
+      .features__right--container {
+        width: 75%; }
       .features__right.mob-right {
         width: 100%;
         order: 2; }
       .features__right img {
-        width: 65%; } }
+        width: 80%;
+        transform: translatey(10rem); } }
 
 @media (max-width: 500px) {
   .features__left--container {
@@ -735,8 +760,7 @@ nav {
 
 @media (max-width: 1024px) {
   .hero {
-    padding-top: 15rem;
-    height: 60vh; }
+    padding-top: 15rem; }
     .hero h1, .hero p {
       transform: translateY(10rem); }
     .hero img {
@@ -750,7 +774,8 @@ nav {
     padding-top: 15rem;
     height: 100vh; }
     .hero .primary-heading {
-      font-size: 2.5rem; }
+      max-width: 93%;
+      font-size: 2.3rem; }
     .hero img {
       max-width: 25rem;
       transform: translateY(0rem);
@@ -759,5 +784,8 @@ nav {
 @media (max-width: 320px) {
   .hero {
     height: 100vh; }
+    .hero .primary-heading {
+      padding: 0 1rem;
+      font-size: 2.5rem; }
     .hero h1, .hero p {
       transform: translatey(0); } }
