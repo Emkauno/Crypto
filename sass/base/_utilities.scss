@@ -1,8 +1,0 @@
-img {
-    transform: translateY(0);
-    transition: transform .3s ease;
-
-    &:hover {
-        transform:translateY(-1rem)
-    }
-}
