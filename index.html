@@ -10,8 +10,7 @@
 
   <body>
     <nav class="nav">
-      <div class="nav__logo-container">
-        <a href="#"><img src="./assets/img/logo.svg" alt=""/></a>
+      <div class="nav__logo-container" id="logobox">
       </div>
       <div class="nav__menu">
         <ul class="nav__links">
@@ -142,4 +141,27 @@
       </div>
     </footer>
   </body>
+<script src="assets/js/lottie.js"></script>
+<script>
+
+  var logoAnimation = bodymovin.loadAnimation({
+  container: logobox, // ID del div
+  path: './assets/img/logo.json', // Ruta fichero .json de la animación
+  renderer: 'svg', // Requerido
+  loop: true, // Opcional
+  autoplay: false, // Opcional
+})
+setTimeout(function(){ logoAnimation.play(); }, 2000);
+//
+
+
+const menuToggle = (menu,boton) => {
+  boton.onclick = ()=> {
+    menu.classList.contains('is-active') ? (menu.classList.remove('is-active'),boton.classList.remove('is-active')) : (menu.classList.add('is-active'),boton.classList.add('is-active'))
+  }
+}
+   
+menuToggle(document.querySelector('.nav-mobile'),document.querySelector('.hamburger'));
+
+</script>
 </html>
