@@ -507,6 +507,11 @@ nav {
   .nav__links--item {
     font-size: 1.8rem; } }
 
+@media (min-width: 721px) {
+  .nav-mobile {
+    display none
+  }
+}
 @media (max-width: 720px) {
   .nav__links {
     display: none; }
