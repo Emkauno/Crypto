@@ -509,7 +509,7 @@ nav {
 
 @media (min-width: 721px) {
   .nav-mobile {
-    display none
+    display: none;
   }
 }
 @media (max-width: 720px) {
